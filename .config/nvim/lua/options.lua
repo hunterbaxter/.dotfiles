@@ -17,11 +17,10 @@ g.termguicolors = true
 g.timeoutlen = 400
 g.updatetime = 250
 
--- all of these cause breaks? 
 -- Disable NeoVim Intro 
 vim.opt.shortmess:append("sI")
--- Metals? 
-vim.opt.shortmess:remove("F"):append("c")
+vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
+vim.opt_global.shortmess:remove("F"):append("c")
 
 
 -- go to previous/next line with h,l,left arrow and right arrow

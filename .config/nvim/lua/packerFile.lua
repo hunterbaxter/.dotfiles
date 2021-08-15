@@ -1,25 +1,12 @@
--- want metals for scala 
+-- want packer to install if not installed
 -- want orgmode
 -- want webdevicons
 -- want telescope
 -- want bolder line numbers or at least a way to toggle
--- want plus/- characters on gitsigns to work on tokyonight 
--- tab completion is not workign?
+-- want plus/- characters on gitsigns to work 
+ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    -- use 'lervag/vimtex'
-    use {
-        'marko-cerovac/material.nvim',
-        -- 'folke/tokyonight.nvim',
-        -- 'projekt0n/github-nvim-theme',
-        config = function()
-            require "plugins.colorsFromPlugin"
-        end
-    }
-    use {
-        "nvim-lua/plenary.nvim",
-        event = "BufRead"
-    }
     use {
         "kabouzeid/nvim-lspinstall",
         event = "BufRead"
@@ -33,10 +20,28 @@ return require('packer').startup(function()
     }
     use {
         'scalameta/nvim-metals',
+        config = function()
+            require "plugins.metals"
+        end
+    }
+    use {
+        'sainnhe/gruvbox-material',
+        config = function()
+            require "plugins.gruvbox"
+        end
+    }
+    -- use {
+        -- 'marko-cerovac/material.nvim',
+        -- 'folke/tokyonight.nvim',
+        -- 'projekt0n/github-nvim-theme',
         -- config = function()
-             -- require "plugins.metals"
+            -- require "plugins.colorsFromPlugin"
         -- end
-     }
+    -- }
+    use {
+        "nvim-lua/plenary.nvim",
+        event = "BufRead"
+    }
     use {
         "lewis6991/gitsigns.nvim",
         after = "plenary.nvim",
@@ -80,6 +85,15 @@ return require('packer').startup(function()
         after = "nvim-compe",
         config = function()
             require "plugins.autopairs"
+        end
+    }
+    -- useful when trying to rice
+    use {
+        "norcalli/nvim-colorizer.lua",
+        -- disable = plugin_status.nvim_colorizer,
+        -- event = "BufRead",
+        config = function()
+            require "plugins.colorizer"
         end
     }
     -- use {
