@@ -18,28 +18,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # aliases
-## folders
-alias work="$HOME/Documents/professional/isis"
-alias doc="$HOME/Documents"
-alias dow="$HOME/Downloads"
-alias pipeline="$HOME/Documents/professional/isis/data_join_pipeline"
-alias pve="source pipeline/bin/activate"
-
-## git
-alias gs='git status'
-alias ga="git add"
-alias gp="git push"
-alias gpo="git push origin"
-alias gpom="git push origin master"
-alias gc='git commit'
-
-## nvim
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-
-## Desktop Environment
-alias lock="xdg-screensaver lock"
+source "$HOME/.dotfiles/.config/zsh/aliases"
 
 # lines configured by zsh-newuser-install
 HISTSIZE=1000
