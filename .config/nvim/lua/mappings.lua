@@ -71,3 +71,11 @@ map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("i", "<CR>", "v:lua.completions()", {expr = true})
+
+vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>fc", ":Telescope commands<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>fd", ":Telescope find_files cwd=~/.config/nvim<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>ft", ":TodoTelescope<CR>", opt)
+

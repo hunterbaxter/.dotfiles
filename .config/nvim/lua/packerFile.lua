@@ -1,12 +1,16 @@
--- want packer to install if not installed
+-- want packer to install if not installed (for reliability)
 -- want orgmode
 -- want webdevicons
--- want telescope
 -- want bolder line numbers or at least a way to toggle
 -- want plus/- characters on gitsigns to work 
- vim.cmd [[packadd packer.nvim]]
+-- should figure out how to incorporate fuzzy finder
+vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end 
+    }
     use {
         "kabouzeid/nvim-lspinstall",
         event = "BufRead"
@@ -24,20 +28,23 @@ return require('packer').startup(function()
             require "plugins.metals"
         end
     }
+    use "rktjmp/lush.nvim"
     use {
-        'sainnhe/gruvbox-material',
-        config = function()
-            require "plugins.gruvbox"
-        end
-    }
-    -- use {
-        -- 'marko-cerovac/material.nvim',
-        -- 'folke/tokyonight.nvim',
-        -- 'projekt0n/github-nvim-theme',
-        -- config = function()
-            -- require "plugins.colorsFromPlugin"
-        -- end
+        "mcchrish/zenbones.nvim",
+    --     'sainnhe/gruvbox-material',
+    --     config = function()
+    --         require "plugins.gruvbox"
+    --     end
     -- }
+    -- use {
+     -- 'marko-cerovac/material.nvim',
+     -- use "mcchrish/zenbones.nvim"
+     -- 'folke/tokyonight.nvim',
+     -- 'projekt0n/github-nvim-theme',
+     config = function()
+        require "plugins.colorsFromPlugin"
+     end
+    }
     use {
         "nvim-lua/plenary.nvim",
         event = "BufRead"
@@ -96,12 +103,18 @@ return require('packer').startup(function()
             require "plugins.colorizer"
         end
     }
+    -- use "nvim-telescope/telescope-fzf-native.nvim"
+    use {
+        'nvim-telescope/telescope.nvim',
+        after = "plenary.nvim",
+        config = function()
+            require "plugins.telescope"
+        end
+    }
     -- use {
-        -- 'nvim-telescope/telescope.nvim',
-        -- after = "plenary.nvim",
-        -- -- requires = {'nvim-lua/popup.nvim'},
-        -- config = function()
-            -- require "plugins.telescope"
-        -- end
+    --     "folke/which-key.nvim",
+    --     config = function()
+    --         require "plugins.whichKey"
+    --     end
     -- }
 end)

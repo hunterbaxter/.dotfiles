@@ -58,7 +58,13 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-export PATH=$PATH:/usr/local/spark/bin
-export PATH=$PATH:/home/baxterhc/.local/share/coursier/bin
+# export PATH=$PATH:/usr/local/spark/bin
+# export PATH=$PATH:/home/baxterhc/.local/share/coursier/bin
+# export PATH=$PATH:/usr/ampl_linux-intel64
+path+=('/usr/local/spark/bin')
+path+=('/usr/local/ampl')
+path+=('/home/baxterhc/.local/share/coursier/bin')
+export PATH
+
 
 source ~/.scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

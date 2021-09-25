@@ -5,10 +5,10 @@ end
 
 gitsigns.setup {
     signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+        change       = {hl = 'GitSignsChange', text = '+', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        topdelete    = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
     numhl = false,
@@ -34,7 +34,7 @@ gitsigns.setup {
         ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
         ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
     },
-    watch_index = {
+    watch_gitdir = {
         interval = 1000,
         follow_files = true
     },
@@ -48,6 +48,7 @@ gitsigns.setup {
     status_formatter = nil, -- Use default
     word_diff = false,
     -- use_decoration_api = false, -- TODO: this is throwing an error for some reasson
-    use_internal_diff = true,  -- If luajit is present
+    -- use_internal_diff = true,  -- If luajit is present
+    -- diff_opts.internal = true -- both of these are throwing strange errors
 }
 
