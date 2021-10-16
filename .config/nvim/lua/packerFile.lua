@@ -1,5 +1,5 @@
--- want packer to install if not installed (for reliability)
 -- want orgmode
+-- TODO: 
 -- want webdevicons
 -- want bolder line numbers or at least a way to toggle
 -- want plus/- characters on gitsigns to work 
@@ -7,10 +7,6 @@
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    use {
-        'glacambre/firenvim',
-        run = function() vim.fn['firenvim#install'](0) end 
-    }
     use {
         "kabouzeid/nvim-lspinstall",
         event = "BufRead"
@@ -22,28 +18,20 @@ return require('packer').startup(function()
             require "plugins.lspconfig"
         end
     }
-    use {
-        'scalameta/nvim-metals',
-        config = function()
-            require "plugins.metals"
-        end
-    }
-    use "rktjmp/lush.nvim"
-    use {
-        "mcchrish/zenbones.nvim",
-    --     'sainnhe/gruvbox-material',
+    -- Something changed with metals, and I don't write scala enough to fix currently
+    -- use {
+    --     'scalameta/nvim-metals',
+    --     requires = "nvim-lua/plenary.nvim"
     --     config = function()
-    --         require "plugins.gruvbox"
+    --         require "plugins.metals"
     --     end
     -- }
-    -- use {
-     -- 'marko-cerovac/material.nvim',
-     -- use "mcchrish/zenbones.nvim"
-     -- 'folke/tokyonight.nvim',
-     -- 'projekt0n/github-nvim-theme',
-     config = function()
-        require "plugins.colorsFromPlugin"
-     end
+    use {
+        "mcchrish/zenbones.nvim",
+        requires = "rktjmp/lush.nvim",
+         config = function()
+            require "plugins.zenbones"
+         end
     }
     use {
         "nvim-lua/plenary.nvim",
@@ -111,10 +99,17 @@ return require('packer').startup(function()
             require "plugins.telescope"
         end
     }
-    -- use {
-    --     "folke/which-key.nvim",
-    --     config = function()
-    --         require "plugins.whichKey"
-    --     end
-    -- }
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require "plugins.whichKey"
+        end
+    }
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup{}
+        end
+    }
 end)
