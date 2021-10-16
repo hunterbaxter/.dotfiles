@@ -1,12 +1,14 @@
 # initializes the promp system promptinit
-autoload -U promptinit 
+autoload -U promptinit
+promptinit
+# allows escape sequences 
+setopt PROMPT_SUBST
 
 # always start with tmux
 if [ "$TMUX" = "" ]; then tmux; fi
 
-# Turn off all beeps
+# NO. BEEPS.
 unsetopt BEEP
-# Turn off autocomplete beeps
 unsetopt LIST_BEEP
 
 # navigation
@@ -43,17 +45,23 @@ setopt HIST_REDUCE_BLANKS
 # magic space
 bindkey ' ' magic-space
 
-# autocomplete
-autoload -Uz compinit
-compinit
+# load completion system
+# NOTE: As of now, completion is not working very well
+autoload -Uz compinit; compinit;
+# zstyle => :completion:function:completer:command:argument:tag
+#
+# from learning shell scripting with zsh on oreilly
+# zstyle ':completion:*' group-name ''
+# zstyle ':completion:descriptions' format '%B%d%b'
+# zstyle ':completion:messages' format %d
+# zstyle ':completion:warnings' format 'No matches for: %d'
+# zstyle ':completion:*' completer_expand_complete_correct
 
 # don't know what this does
 zstyle ':completion:*' menu select
 # don't know what this does
 zmodload zsh/complist
 _comp_options+=(globdots)
-# End of lines added by compinstall
-
 
 # # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
