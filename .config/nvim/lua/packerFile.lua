@@ -2,7 +2,6 @@
 -- TODO: 
 -- want webdevicons
 -- want bolder line numbers or at least a way to toggle
--- want plus/- characters on gitsigns to work 
 -- should figure out how to incorporate fuzzy finder
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
