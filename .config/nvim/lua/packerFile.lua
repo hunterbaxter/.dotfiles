@@ -29,9 +29,9 @@ return require('packer').startup(function()
     use {
         "mcchrish/zenbones.nvim",
         requires = "rktjmp/lush.nvim",
-         config = function()
+        config = function()
             require "plugins.zenbones"
-         end
+        end
     }
     use {
         "nvim-lua/plenary.nvim",
@@ -53,6 +53,12 @@ return require('packer').startup(function()
             require "plugins.treesitter"
         end
     }
+    -- use {
+    --     "ms-jpq/coq_nvim",
+    --     config = function()
+    --         require "plugins.coq"
+    --     end
+    -- }
     use {
         "hrsh7th/nvim-compe",
         event = "InsertEnter",
@@ -82,15 +88,14 @@ return require('packer').startup(function()
             require "plugins.autopairs"
         end
     }
-    -- useful when trying to rice
-    use {
-        "norcalli/nvim-colorizer.lua",
-        -- disable = plugin_status.nvim_colorizer,
-        -- event = "BufRead",
-        config = function()
-            require "plugins.colorizer"
-        end
-    }
+    -- use {
+    --     "norcalli/nvim-colorizer.lua",
+    --     -- disable = plugin_status.nvim_colorizer,
+    --     -- event = "BufRead",
+    --     config = function()
+    --         require "plugins.colorizer"
+    --     end
+    -- }
     -- use "nvim-telescope/telescope-fzf-native.nvim"
     use {
         'nvim-telescope/telescope.nvim',
@@ -110,6 +115,12 @@ return require('packer').startup(function()
         requires = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup{}
+        end
+    }
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require "plugins.indentBlankline"
         end
     }
 end)
