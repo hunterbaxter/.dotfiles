@@ -40,18 +40,17 @@ setopt HIST_IGNORE_ALL_DUPS
 # remove unnecessary blanks
 setopt HIST_REDUCE_BLANKS
 
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '~/dotfiles/.zshrc'
-
 # magic space
 bindkey ' ' magic-space
 
 # autocomplete
 autoload -Uz compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
 compinit
+
+# don't know what this does
+zstyle ':completion:*' menu select
+# don't know what this does
+zmodload zsh/complist
 _comp_options+=(globdots)
 # End of lines added by compinstall
 
