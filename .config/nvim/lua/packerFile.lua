@@ -116,10 +116,10 @@ return require('packer').startup(function()
             require("todo-comments").setup{}
         end
     }
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require "plugins.indentBlankline"
-        end
-    }
+    -- use {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     config = function()
+    --         require "plugins.indentBlankline"
+    --     end
+    -- }
 end)
