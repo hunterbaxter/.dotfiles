@@ -5,7 +5,7 @@ promptinit
 setopt PROMPT_SUBST
 
 # always start with tmux
-if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux; fi
 
 # NO. BEEPS.
 unsetopt BEEP
