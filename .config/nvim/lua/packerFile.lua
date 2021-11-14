@@ -1,8 +1,9 @@
--- want orgmode
--- TODO: 
+-- want orgmode0
 -- want webdevicons
 -- want bolder line numbers or at least a way to toggle
 -- should figure out how to incorporate fuzzy finder
+-- want nvim crates in status line to have better scope
+-- TODO: get native lsp working instead of coc
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
@@ -10,6 +11,10 @@ return require('packer').startup(function()
         "kabouzeid/nvim-lspinstall",
         event = "BufRead"
     }
+    -- use {
+    --     'neoclide/coc.nvim',
+    --     branch='release',
+    -- }
     use {
         "neovim/nvim-lspconfig",
         after = "nvim-lspinstall",
@@ -52,12 +57,6 @@ return require('packer').startup(function()
             require "plugins.treesitter"
         end
     }
-    -- use {
-    --     "ms-jpq/coq_nvim",
-    --     config = function()
-    --         require "plugins.coq"
-    --     end
-    -- }
     use {
         "hrsh7th/nvim-compe",
         event = "InsertEnter",
@@ -87,15 +86,7 @@ return require('packer').startup(function()
             require "plugins.autopairs"
         end
     }
-    -- use {
-    --     "norcalli/nvim-colorizer.lua",
-    --     -- disable = plugin_status.nvim_colorizer,
-    --     -- event = "BufRead",
-    --     config = function()
-    --         require "plugins.colorizer"
-    --     end
-    -- }
-    -- use "nvim-telescope/telescope-fzf-native.nvim"
+    use "nvim-telescope/telescope-fzf-native.nvim"
     use {
         'nvim-telescope/telescope.nvim',
         after = "plenary.nvim",
@@ -116,10 +107,5 @@ return require('packer').startup(function()
             require("todo-comments").setup{}
         end
     }
-    -- use {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     config = function()
-    --         require "plugins.indentBlankline"
-    --     end
-    -- }
+    use {'jdhao/whitespace.nvim', event = 'VimEnter'}
 end)
