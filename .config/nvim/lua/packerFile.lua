@@ -52,23 +52,34 @@ return require('packer').startup(function()
             require("plugins.autopairs")
         end,
     }
+    -- use {
+    --     "nvim-lua/plenary.nvim",
+    --     event = "BufRead"
+    -- }
     use {
-        "nvim-lua/plenary.nvim",
-        event = "BufRead"
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
     }
     use {
-       "nvim-telescope/telescope.nvim",
-       requires = "nvim-lua/plenary.nvim",
-       module = "telescope",
-       after = {
-           "telescope-fzf-native.nvim",
-           -- one day figure this out
-           -- "telescope-dap.nvim",
-       },
-       config = function()
-           require("plugins.telescope")
-       end,
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} },
+        config = function()
+            require "plugins.telescope"
+        end
     }
+    -- use {
+    --    "nvim-telescope/telescope.nvim",
+    --    requires = "nvim-lua/plenary.nvim",
+    --    -- module = "telescope",
+    --    after = {
+    --     -- "telescope-fzf-native.nvim",
+    --     -- one day figure this out
+    --     -- "telescope-dap.nvim",
+    --    },
+    --    config = function()
+    --        require("plugins.telescope")
+    --    end,
+    -- }
     use {
         "mcchrish/zenbones.nvim",
         requires = "rktjmp/lush.nvim",
@@ -96,5 +107,10 @@ return require('packer').startup(function()
             require("todo-comments").setup{}
         end
     }
-    use {'jdhao/whitespace.nvim', event = 'VimEnter'}
+    use {
+        'jdhao/whitespace.nvim',
+        event = 'VimEnter'
+    }
+    -- NOTE: needs pandoc and live-server
+    use "davidgranstrom/nvim-markdown-preview"
 end)
