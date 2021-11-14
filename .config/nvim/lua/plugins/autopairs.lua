@@ -1,14 +1,8 @@
-local present1, autopairs = pcall(require, "nvim-autopairs")
-local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.compe")
+require("nvim-autopairs").setup({
+	check_ts = true,
+	enable_check_bracket_line = false,
+	ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
+})
 
-if not (present1 or present2) then
-    return
-end
-
-autopairs.setup()
-autopairs_completion.setup(
-    {
-        map_cr = true,
-        map_complete = true -- insert () func completion
-    }
-)
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())

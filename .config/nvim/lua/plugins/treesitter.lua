@@ -6,14 +6,18 @@ end
 ts_config.setup {
     ensure_installed = {
         "bash",
+        "c",
+        "cpp",
+        "json",
+        "latex",
         "lua",
         "python",
-        "latex",
-        "cpp"
+        "rust",
+        "yaml",
     },
     highlight = {
         enable = true,
         use_languagetree = true
     }
-} 
+}
 

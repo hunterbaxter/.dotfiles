@@ -2,14 +2,14 @@ vim.g.mapleader = " "
 vim.g.auto_save = false
 
 -- global options
-local g = vim.o 
+local g = vim.o
 g.backspace = [[indent,eol,start]]
 -- g.clipboard = "unnamedplus"
 g.hidden = true
 g.ignorecase = true
 g.incsearch = true
 g.mouse = 'a'
-g.ruler = true 
+g.ruler = true
 g.smartcase = true
 g.splitbelow = true
 g.splitright = true
@@ -17,7 +17,7 @@ g.termguicolors = true
 g.timeoutlen = 400
 g.updatetime = 250
 
--- Disable NeoVim Intro 
+-- Disable NeoVim Intro
 vim.opt.shortmess:append("sI")
 vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
 vim.opt_global.shortmess:remove("F"):append("c")
@@ -75,3 +75,4 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
+vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
