@@ -11,7 +11,7 @@ setopt PROMPT_SUBST
 unsetopt BEEP
 unsetopt LIST_BEEP
 
-# navigation
+# navigation without cd
 setopt AUTO_CD
 
 # nvim
@@ -23,11 +23,12 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # import aliases from alias file
-source "$HOME/.dotfiles/.config/zsh/aliases"
+source "$HOME/.dotfiles/.config/zsh/private_aliases"
+source "$HOME/.dotfiles/.config/zsh/public_aliases"
 
 
 # HISTORY: `man zshoptions` for descriptions
-# if ~/.cashe/zsh directory doesn't exist, will break
+# if ~/.cashe/zsh directory doesn't exist, will break, so make it
 HISTFILE=~/.cache/zsh/history
 # number of items for internal history list
 HISTSIZE=100000
@@ -42,7 +43,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # remove unnecessary blanks
 setopt HIST_REDUCE_BLANKS
 
-# magic space
+# magic space (fills in !!)
 bindkey ' ' magic-space
 
 # load completion system
@@ -57,7 +58,7 @@ autoload -Uz compinit; compinit;
 # zstyle ':completion:warnings' format 'No matches for: %d'
 # zstyle ':completion:*' completer_expand_complete_correct
 
-# don't know what this does
+# don't know what this does (from book)
 zstyle ':completion:*' menu select
 # don't know what this does
 zmodload zsh/complist
@@ -92,4 +93,5 @@ path+=('/usr/local/ampl')
 path+=('/home/baxterhc/.local/share/coursier/bin')
 export PATH
 
+# I stored it in a scripts directory I have
 source ~/.scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

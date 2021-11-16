@@ -1,0 +1,21 @@
+## git shortcuts
+alias gs='git status'
+alias ga="git add"
+alias gp="git pull"
+alias gpo="git pull origin"
+alias gc='git commit'
+
+## use nvim whenever I type out something related to vim
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+
+## lock screen quickly from terminal
+alias lock="xdg-screensaver lock"
+
+# reboot sequence
+alias rbsq="sudo dnf upgrade -y && systemctl reboot -i --force"
+
+# alias unix
+alias ls="ls --color=auto"
+
