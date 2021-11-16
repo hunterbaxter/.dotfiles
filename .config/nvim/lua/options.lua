@@ -28,7 +28,7 @@ vim.opt_global.shortmess:remove("F"):append("c")
 vim.opt.whichwrap:append("<>hl")
 
 -- local to window options
-local w = vim.wo 
+local w = vim.wo
 -- w.cursorline = true
 -- w.cursorcolumn = true
 w.number = true
@@ -37,7 +37,7 @@ w.relativenumber = true
 w.signcolumn = "yes"
 
 -- local to buffer options
-local b = vim.bo 
+local b = vim.bo
 b.autoindent = true
 b.expandtab = true
 b.softtabstop = 4

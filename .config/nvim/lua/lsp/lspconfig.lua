@@ -2,13 +2,13 @@
 
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
-local lspSignatureCfg = {
-	hint_enable = false,
-	handler_opts = {
-		border = "single",
-	},
-	zindex = 50, -- signatureHelp behind completion items
-}
+-- local lspSignatureCfg = {
+-- 	hint_enable = false,
+-- 	handler_opts = {
+-- 		border = "single",
+-- 	},
+-- 	zindex = 50, -- signatureHelp behind completion items
+-- }
 
 -- lspkeymaps
 local on_attach = function(client, bufnr)
@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	require("lsp_signature").on_attach(lspSignatureCfg)
+	-- require("lsp_signature").on_attach(lspSignatureCfg)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	-- buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)

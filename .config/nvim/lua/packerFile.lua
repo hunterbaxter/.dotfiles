@@ -25,7 +25,7 @@ return require('packer').startup(function()
     use "williamboman/nvim-lsp-installer"
     use "kosayoda/nvim-lightbulb"
     use "onsails/lspkind-nvim"
-    use "ray-x/lsp_signature.nvim"
+    -- use "ray-x/lsp_signature.nvim"
     use {
 			"hrsh7th/nvim-cmp",
 			requires = {
@@ -81,8 +81,9 @@ return require('packer').startup(function()
     --    end,
     -- }
     use {
-        "mcchrish/zenbones.nvim",
-        requires = "rktjmp/lush.nvim",
+        -- "mcchrish/zenbones.nvim",
+        "folke/tokyonight.nvim",
+        -- requires = "rktjmp/lush.nvim",
         config = function()
             require "plugins.zenbones"
         end
