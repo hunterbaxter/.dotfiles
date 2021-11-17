@@ -5,15 +5,14 @@ end
 
 gitsigns.setup {
     signs = {
-        add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-        change       = {hl = 'GitSignsChange', text = '+', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete    = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+      add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+      change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+      delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     },
-    numhl = false,
-    linehl = false,
-    numhl = false,
+    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
     keymaps = {
         -- Default keymap options
         noremap = true,
@@ -46,9 +45,7 @@ gitsigns.setup {
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
-    word_diff = false,
     -- use_decoration_api = false, -- TODO: this is throwing an error for some reasson
     -- use_internal_diff = true,  -- If luajit is present
     -- diff_opts.internal = true -- both of these are throwing strange errors
 }
-

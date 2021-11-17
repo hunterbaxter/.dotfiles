@@ -81,19 +81,22 @@ return require('packer').startup(function()
     --    end,
     -- }
     use {
-        -- "mcchrish/zenbones.nvim",
-        "folke/tokyonight.nvim",
-        -- requires = "rktjmp/lush.nvim",
+        -- "folke/tokyonight.nvim",
+        "mcchrish/zenbones.nvim",
+        requires = "rktjmp/lush.nvim",
         config = function()
             require "plugins.zenbones"
         end
     }
     use {
-        "lewis6991/gitsigns.nvim",
-        after = "plenary.nvim",
-        config = function()
-            require "plugins.gitsigns"
-        end
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = function()
+        -- require('gitsigns').setup()
+        require "plugins.gitsigns"
+      end
     }
     use {
         "folke/which-key.nvim",
