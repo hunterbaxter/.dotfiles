@@ -52,10 +52,6 @@ return require('packer').startup(function()
             require("plugins.autopairs")
         end,
     }
-    -- use {
-    --     "nvim-lua/plenary.nvim",
-    --     event = "BufRead"
-    -- }
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
@@ -67,19 +63,6 @@ return require('packer').startup(function()
             require "plugins.telescope"
         end
     }
-    -- use {
-    --    "nvim-telescope/telescope.nvim",
-    --    requires = "nvim-lua/plenary.nvim",
-    --    -- module = "telescope",
-    --    after = {
-    --     -- "telescope-fzf-native.nvim",
-    --     -- one day figure this out
-    --     -- "telescope-dap.nvim",
-    --    },
-    --    config = function()
-    --        require("plugins.telescope")
-    --    end,
-    -- }
     use {
         -- "folke/tokyonight.nvim",
         "mcchrish/zenbones.nvim",
@@ -94,8 +77,7 @@ return require('packer').startup(function()
         'nvim-lua/plenary.nvim'
       },
       config = function()
-        -- require('gitsigns').setup()
-        require "plugins.gitsigns"
+          require "plugins.gitsigns"
       end
     }
     use {
@@ -116,5 +98,5 @@ return require('packer').startup(function()
         event = 'VimEnter'
     }
     -- NOTE: needs pandoc and live-server
-    use "davidgranstrom/nvim-markdown-preview"
+    -- use "davidgranstrom/nvim-markdown-preview"
 end)
