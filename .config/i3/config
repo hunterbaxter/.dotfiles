@@ -1,10 +1,14 @@
-# i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 font pango: IBM Plex Mono 10
 
 # start a terminal
-# bindsym Mod1+Return exec i3-sensible-terminal
 bindsym Mod1+Return exec alacritty
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+}
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -30,18 +34,18 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
-# set $up h
-# set $down j
-# set $left k
-# set $right l
+# og are more ergonomic, but not vim
+# set $up l
+# set $down k
+# set $left j
+# set $right semicolon
+set $left h
+set $down j
+set $up k
+set $right l
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
-
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -79,10 +83,10 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+# bindsym Mod1+h split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+# bindsym Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen toggle
@@ -182,8 +186,3 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
