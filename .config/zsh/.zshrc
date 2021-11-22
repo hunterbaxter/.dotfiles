@@ -1,3 +1,4 @@
+setxkbmap -option caps:swapescape
 # initializes the promp system promptinit
 autoload -U promptinit
 promptinit
@@ -91,6 +92,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 path+=('/usr/local/spark/bin')
 path+=('/usr/local/ampl')
 path+=('/home/baxterhc/.local/share/coursier/bin')
+path+=('/usr/local/share/openvswitch/scripts/')
 export PATH
 
 # I stored it in a scripts directory I have

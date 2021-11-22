@@ -17,7 +17,7 @@ alias \
     open="xdg-open"
 
 # reboot sequence
-alias rbsq="sudo dnf upgrade -y && systemctl reboot -i --force"
+alias rbsq="sudo dnf upgrade -y && sudo systemctl reboot -i --force"
 
 # colorize when possible
 alias \
