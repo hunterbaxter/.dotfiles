@@ -17,7 +17,6 @@ return require('packer').startup(function()
     }
     use {
         "neovim/nvim-lspconfig",
-        -- after = "nvim-lspconfig",
         config = function()
             require "lsp.lspconfig"
         end
@@ -96,6 +95,13 @@ return require('packer').startup(function()
     use {
         'jdhao/whitespace.nvim',
         event = 'VimEnter'
+    }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function()
+            require "plugins.lualine"
+        end
     }
     -- NOTE: needs pandoc and live-server
     -- use "davidgranstrom/nvim-markdown-preview"
