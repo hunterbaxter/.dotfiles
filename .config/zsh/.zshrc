@@ -93,6 +93,7 @@ path+=('/usr/local/spark/bin')
 path+=('/usr/local/ampl')
 path+=('/home/baxterhc/.local/share/coursier/bin')
 path+=('/usr/local/share/openvswitch/scripts/')
+path+=('$HOME/.local/bin')
 export PATH
 
 # I stored it in a scripts directory I have

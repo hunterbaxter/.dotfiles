@@ -24,3 +24,8 @@ alias \
 	ls="ls --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto"
+
+# pomodoro timer
+alias pomo="sleep 1500 && zenity --warning --text='25 minutes passed. Break.'"
+alias sbpomo="sleep 300 && zenity --warning --text='5 minute passed. Back to work.'"
+alias lbpomo="sleep 900 && zenity --warning --text='15 minute passed. Back to work.'"
