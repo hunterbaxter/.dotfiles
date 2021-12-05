@@ -104,6 +104,12 @@ return require('packer').startup(function()
             require('Comment').setup()
         end
     }
-    -- NOTE: needs pandoc and live-server
-    -- use "davidgranstrom/nvim-markdown-preview"
+    use {
+        "lervag/vimtex",
+        ft = {"tex", "bib"},
+        config = function()
+            -- BUG: can't use zathura when using a lua configuration file
+            vim.cmd("source ~/.dotfiles/.config/nvim/lua/plugins/vimtex.vim")
+        end
+    }
 end)
