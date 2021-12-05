@@ -1,8 +1,3 @@
--- want orgmode
--- want webdevicons
--- want bolder line numbers or at least a way to toggle
--- should figure out how to incorporate fuzzy finder
--- want nvim crates in status line to have better scope
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
     use "wbthomason/packer.nvim"
@@ -101,6 +96,12 @@ return require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function()
             require "plugins.lualine"
+        end
+    }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
         end
     }
     -- NOTE: needs pandoc and live-server
