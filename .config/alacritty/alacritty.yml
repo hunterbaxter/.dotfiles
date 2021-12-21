@@ -29,7 +29,7 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 10.0
+  size: 11.0
   # Normal (roman) font face
   normal:
     family: IBM Plex Mono

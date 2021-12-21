@@ -8,3 +8,7 @@ bind-key K prev-feed articlelist
 bind-key h quit
 bind-key a toggle-article-read
 bind-key x delete-article
+bind-key g home
+bind-key G end
+
+browser "firefox %u"

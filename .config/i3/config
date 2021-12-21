@@ -1,13 +1,31 @@
+# reload the configuration file
+bindsym Mod1+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod1+Shift+r restart
+
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 font pango: IBM Plex Mono 10
 
 # start a terminal
 bindsym Mod1+Return exec alacritty
 
+# screenshot
+# bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+# bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+# configure multiple monitors
+
+# xrandr --output
+
+# start polybar
+# exec_always --no-startup-id ~/.dotfiles/.config/i3/polybar.sh &
+# exec_always --no-startup-id ~/.dotfiles/.config/polybar/launch.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
 }
 
 # Start XDG autostart .desktop files using dex. See also
@@ -152,10 +170,6 @@ bindsym Mod1+Shift+8 move container to workspace number $ws8
 bindsym Mod1+Shift+9 move container to workspace number $ws9
 bindsym Mod1+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym Mod1+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 

@@ -1,8 +1,8 @@
 -- zenbone colorscheme
 vim.o.background="light"
 vim.cmd([[colorscheme zenbones]])
--- -- vim.o.background="dark"
--- -- vim.cmd([[colorscheme rosebones]])
+-- vim.o.background="dark"
+-- vim.cmd([[colorscheme rosebones]])
 
 -- tokyo night
 -- vim.g.tokyonight_style = "day"
