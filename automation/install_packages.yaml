@@ -1,0 +1,20 @@
+---
+- name: Install workstation software
+  hosts: localhost
+  vars_files:
+    - package_list.yaml
+  tasks:
+    - name: Install dnf packages
+      become: true
+      become_user: root
+      ansible.builtin.dnf:
+        name: "{{item}}"
+        state: latest
+        update_cache: true
+      loop: "{{dnf_packages}}"
+    - name: Autoremove unneeded packages installed as dependencies
+      ansible.builtin.dnf:
+        autoremove: yes
+    # TODO: pip packages
+    # TODO: system upgrades are manual for now
+...

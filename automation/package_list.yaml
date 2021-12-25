@@ -1,0 +1,28 @@
+# TODO: docker
+dnf_packages:
+  - '@Development tools'
+  - alacritty
+  - awscli
+  - ansible
+  - blueman
+  - dunst
+  - dmenu
+  - firefox
+  - gcc
+  - ibm-plex-fonts-all
+  - i3
+  - libreoffice
+  - htop
+  - neovim
+  - task
+  - timew
+  - texlive-scheme-full
+  - ranger
+  - thunar
+  - tldr
+  - tmux
+  - pandoc
+  - python3
+  - vagrant
+  - zathura
+  - zsh
