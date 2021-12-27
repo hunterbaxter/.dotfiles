@@ -1,22 +1,8 @@
--- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
--- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-
--- local lspSignatureCfg = {
--- 	hint_enable = false,
--- 	handler_opts = {
--- 		border = "single",
--- 	},
--- 	zindex = 50, -- signatureHelp behind completion items
--- }
-
 -- lspkeymaps
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
-
-	-- require("lsp_signature").on_attach(lspSignatureCfg)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
@@ -61,40 +47,8 @@ local function make_config()
 	}
 end
 
-local lspconf = require("lspconfig")
--- lspconf["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
--- local conf = require("lsp.servers.null_ls").setup(make_config())
--- lspconf["null-ls"].setup(conf)
-
--- nvim-lsp-installer
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.on_server_ready(function(server)
-	local config = make_config()
-
-	if server.name == "sumneko_lua" then
-		config = require("lsp.servers.lua").setup(config, on_attach)
-	end
-
-	if server.name == "texlab" then
-		config = require("lsp.servers.latex").setup(config, on_attach)
-	end
-
-	if server.name == "html" then
-		config = require("lsp.servers.html").setup(config, on_attach)
-	end
-
-	if server.name == "jsonls" then
-		config = require("lsp.servers.json").setup(config, on_attach)
-	end
-
-	-- if server.name == "efm" then
-	-- 	config = require("lsp.servers.efm").setup(config, on_attach)
-	-- end
-
-	server:setup(config)
-	vim.cmd([[ do User LspAttachBuffers ]])
-end)
+local nvim_lsp = require('lspconfig')
+nvim_lsp.pyright.setup{}
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", { text = "", numhl = "LspDiagnosticsDefaultError" })
@@ -103,4 +57,4 @@ vim.fn.sign_define("LspDiagnosticsSignInformation", { text = "", numhl = "Lsp
 vim.fn.sign_define("LspDiagnosticsSignHint", { text = "", numhl = "LspDiagnosticsDefaultHint" })
 
 -- show lightbulb when a code actions is available
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]])
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]])

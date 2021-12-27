@@ -16,27 +16,32 @@ return require('packer').startup(function()
             require "lsp.lspconfig"
         end
     }
-    use "williamboman/nvim-lsp-installer"
+    use {
+        "williamboman/nvim-lsp-installer",
+        config = function()
+            require "lsp.lspInstaller"
+        end
+    }
     use "kosayoda/nvim-lightbulb"
     use "onsails/lspkind-nvim"
     -- use "ray-x/lsp_signature.nvim"
     use {
-			"hrsh7th/nvim-cmp",
-			requires = {
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-nvim-lua",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-calc",
-				"kdheepak/cmp-latex-symbols",
-				"ray-x/cmp-treesitter",
-				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-cmdline",
-				"hrsh7th/cmp-nvim-lsp-document-symbol",
-			},
-			config = function()
-				require("plugins.cmp")
-			end,
+	"hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-calc",
+            "kdheepak/cmp-latex-symbols",
+            "ray-x/cmp-treesitter",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
+        },
+        config = function()
+            require("plugins.cmp")
+        end,
     }
 	use "L3MON4D3/LuaSnip"
     use {
@@ -46,17 +51,18 @@ return require('packer').startup(function()
             require("plugins.autopairs")
         end,
     }
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make'
-    }
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} },
-        config = function()
-            require "plugins.telescope"
-        end
-    }
+    -- until fedora gets 0.6 this is useless
+    -- use {
+    --     'nvim-telescope/telescope-fzf-native.nvim',
+    --     run = 'make'
+    -- }
+    -- use {
+    --     'nvim-telescope/telescope.nvim',
+    --     requires = { {'nvim-lua/plenary.nvim'} },
+    --     config = function()
+    --         require "plugins.telescope"
+    --     end
+    -- }
     use {
         -- "folke/tokyonight.nvim",
         "mcchrish/zenbones.nvim",
@@ -110,6 +116,13 @@ return require('packer').startup(function()
         config = function()
             -- BUG: can't use zathura when using a lua configuration file
             vim.cmd("source ~/.dotfiles/.config/nvim/lua/plugins/vimtex.vim")
+        end
+    }
+    use {
+        "Pocco81/TrueZen.nvim",
+        -- ft = {"tex", "bib"},
+        config = function()
+            require "plugins.zen"
         end
     }
 end)
