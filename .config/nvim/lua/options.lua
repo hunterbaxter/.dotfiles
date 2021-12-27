@@ -1,50 +1,54 @@
+-- these cause errors if included in the rest of the options
 vim.g.mapleader = " "
 vim.g.auto_save = false
 
--- global options
-local g = vim.o
-g.backspace = [[indent,eol,start]]
--- g.clipboard = "unnamedplus"
-g.hidden = true
-g.ignorecase = true
-g.incsearch = true
-g.mouse = 'a'
-g.ruler = true
-g.smartcase = true
-g.splitbelow = true
-g.splitright = true
-g.termguicolors = true
-g.timeoutlen = 400
-g.updatetime = 250
+-- ttps://www.youtube.com/watch?v=hY5-Q6NxQgY&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=2
+-- ^ is a great video on options
+-- :help options
+local options = {
+    backup = true,
+    clipboard = "unnamedplus",
+    hidden = true,
+    ignorecase = true,
+    incsearch = true,
+    mouse = "a",
+    ruler = true,
+    smartcase = true,
+    splitbelow = true,
+    splitright = true,
+    termguicolors = true,
+    timeoutlen = 400,
+    updatetime = 250,
+    completeopt = { "menu", "noinsert", "noselect" },
+    number = true,
+    numberwidth = 3,
+    relativenumber = true,
+    signcolumn = "yes",
+    autoindent = true,
+    expandtab = true,
+    -- TODO: have tab size change per language,
+    softtabstop = 4,
+    shiftwidth = 4,
+    tabstop = 4,
+    smartindent = true,
+    modeline = false,
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
+vim.cmd [[set iskeyword+=-]] -- makes "-" part of a word
+
+vim.o.backspace = [[indent,eol,start]]
 
 -- Disable NeoVim Intro
 vim.opt.shortmess:append("sI")
-vim.opt_global.completeopt = { "menu", "noinsert", "noselect" }
 vim.opt_global.shortmess:remove("F"):append("c")
-
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 vim.opt.whichwrap:append("<>hl")
-
--- local to window options
-local w = vim.wo
--- w.cursorline = true
--- w.cursorcolumn = true
-w.number = true
-w.numberwidth = 3
-w.relativenumber = true
-w.signcolumn = "yes"
-
--- local to buffer options
-local b = vim.bo
-b.autoindent = true
-b.expandtab = true
-b.softtabstop = 4
-b.shiftwidth = 4
-b.tabstop = 4
-b.smartindent = true
-b.modeline = false
 
 -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
 vim.cmd("let &fcs='eob: '")
