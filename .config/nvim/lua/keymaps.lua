@@ -16,3 +16,5 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+keymap("n", "<leader>e", ":Lex 30<cr>", opts)

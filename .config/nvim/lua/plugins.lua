@@ -26,6 +26,8 @@ vim.cmd [[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
+  vim.notify("that didn't work")
+  print("that didn't work")
   return
 end
 
@@ -165,4 +167,15 @@ return require('packer').startup(function()
             require "plugins.zen"
         end
     }
+    use {
+        'iamcco/markdown-preview.nvim',
+        -- TODO: only load on correct filetype
+        ft = {"markdown"},
+        run = 'cd app && yarn install',
+    }
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)

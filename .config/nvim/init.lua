@@ -1,7 +1,7 @@
 local modules = {
-    "options",
-    "packerFile",
     "keymaps",
+    "options",
+    "plugins",
 }
 
 for i = 1, #modules, 1 do
