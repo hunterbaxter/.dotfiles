@@ -106,13 +106,10 @@ return require('packer').startup(function()
     --     end
     -- }
     use {
-        -- "folke/tokyonight.nvim",
         "mcchrish/zenbones.nvim",
         requires = "rktjmp/lush.nvim",
-        config = function()
-            require "plugins.zenbones"
-        end
     }
+    use "folke/tokyonight.nvim"
     use {
       'lewis6991/gitsigns.nvim',
       requires = {
