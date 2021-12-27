@@ -1,5 +1,4 @@
 -- these cause errors if included in the rest of the options
-vim.g.mapleader = " "
 vim.g.auto_save = false
 
 -- ttps://www.youtube.com/watch?v=hY5-Q6NxQgY&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=2
