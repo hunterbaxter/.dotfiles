@@ -42,15 +42,6 @@ packer.init {
 -- vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
   use "wbthomason/packer.nvim"
-  -- use {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   branch = "0.5-compat",
-  --   event = "BufRead",
-  --   run = ":TSUpdate",
-  --   config = function()
-  --       require "plugins.treesitter"
-  --   end
-  -- }
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -62,6 +53,14 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "0.5-compat",
+    run = ":TSUpdate",
+    config = function()
+        require "_plugins.treesitter"
+    end
+  }
  --    use {
  --        "windwp/nvim-autopairs",
  --        after = "nvim-cmp",
@@ -86,21 +85,21 @@ return require('packer').startup(function()
     requires = "rktjmp/lush.nvim",
   }
   use "folke/tokyonight.nvim"
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim'
-  --   },
-  --   config = function()
-  --     require "plugins.gitsigns"
-  --   end
-  -- }
-  -- use {
-  --   "folke/which-key.nvim",
-  --   config = function()
-  --     require "plugins.whichKey"
-  --   end
-  -- }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require "_plugins.gitsigns"
+    end
+  }
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require "_plugins.whichKey"
+    end
+  }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -112,13 +111,13 @@ return require('packer').startup(function()
     'jdhao/whitespace.nvim',
     event = 'VimEnter'
   }
-  -- use {
-  --   'nvim-lualine/lualine.nvim',
-  --   requires = {'kyazdani42/nvim-web-devicons', opt = true},
-  --   config = function()
-  --       require "plugins._lualine"
-  --   end
-  -- }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+        require "_plugins.lualine"
+    end
+  }
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -130,16 +129,16 @@ return require('packer').startup(function()
     ft = {"tex", "bib"},
     config = function()
       -- BUG: can't use zathura when using a lua configuration file
-      vim.cmd("source ~/.dotfiles/.config/nvim/lua/plugins/vimtex.vim")
+      vim.cmd("source ~/.dotfiles/.config/nvim/lua/_plugins/vimtex.vim")
     end
   }
-  -- use {
-  --   "Pocco81/TrueZen.nvim",
-  --   -- ft = {"tex", "bib"},
-  --   config = function()
-  --       require "plugins._zen"
-  --   end
-  -- }
+  use {
+    "Pocco81/TrueZen.nvim",
+    -- ft = {"tex", "bib"},
+    config = function()
+        require "_plugins.zen"
+    end
+  }
   use {
     'iamcco/markdown-preview.nvim',
     ft = {"markdown"},

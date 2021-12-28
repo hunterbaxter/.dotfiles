@@ -1,5 +1,4 @@
 local M = {} -- this is exported at the end
-
 -- TODO: backfill this to template
 M.setup = function()
   local signs = {
@@ -12,7 +11,7 @@ M.setup = function()
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
-
+  -- TODO: virutal text still appears?
   local config = {
     -- disable virtual text
     virtual_text = false,
@@ -32,6 +31,7 @@ M.setup = function()
       prefix = "",
     },
   }
+
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
