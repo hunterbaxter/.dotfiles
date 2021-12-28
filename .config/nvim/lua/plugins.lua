@@ -107,10 +107,7 @@ return require('packer').startup(function()
         require("todo-comments").setup{}
     end
   }
-  use {
-    'jdhao/whitespace.nvim',
-    event = 'VimEnter'
-  }
+  use 'jdhao/whitespace.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -128,7 +125,6 @@ return require('packer').startup(function()
     "lervag/vimtex",
     ft = {"tex", "bib"},
     config = function()
-      -- BUG: can't use zathura when using a lua configuration file
       vim.cmd("source ~/.dotfiles/.config/nvim/lua/_plugins/vimtex.vim")
     end
   }

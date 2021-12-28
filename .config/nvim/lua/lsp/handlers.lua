@@ -11,9 +11,8 @@ M.setup = function()
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
-  -- TODO: virutal text still appears?
+  -- BUG: virutal text still appears?!?!
   local config = {
-    -- disable virtual text
     virtual_text = false,
     -- show signs
     signs = {
