@@ -1,16 +1,16 @@
 local modules = {
-  "user.keymaps",
-  "user.options",
-  "user.plugins",
-  "user.colorscheme",
-  "user.completion",
-  "user.lsp"
+  "keymaps",
+  "options",
+  "plugins",
+  "colorscheme",
+  "completion",
+  "lsp"
 }
 
 -- for i = 1, #modules, 1 do
 --     pcall(require, modules[i])
 -- end
-
+local user = "hunter"
 for i = 1, #modules, 1 do
     local status_ok, _ = pcall(require, modules[i])
     if not status_ok then
