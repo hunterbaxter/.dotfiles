@@ -60,13 +60,6 @@ return require("packer").startup(function(use)
       require "_plugins.treesitter"
     end,
   }
-  --    use {
-  --        "windwp/nvim-autopairs",
-  --        after = "nvim-cmp",
-  --        config = function()
-  --            require("plugins.autopairs")
-  --        end,
-  --    }
   -- until fedora gets 0.6 this is useless
   -- use {
   --     'nvim-telescope/telescope-fzf-native.nvim',
@@ -96,7 +89,7 @@ return require("packer").startup(function(use)
   use {
     "folke/which-key.nvim",
     config = function()
-      -- require "_plugins.whichKey
+      require "_plugins.whichKey"
     end,
   }
   use {
@@ -126,13 +119,13 @@ return require("packer").startup(function(use)
       vim.cmd "source ~/.dotfiles/.config/nvim/lua/_plugins/vimtex.vim"
     end,
   }
-  use {
-    "Pocco81/TrueZen.nvim",
-    -- ft = {"tex", "bib"},
-    config = function()
-      require "_plugins.zen"
-    end,
-  }
+  -- use {
+  --   "Pocco81/TrueZen.nvim",
+  --   -- ft = {"tex", "bib"},
+  --   config = function()
+  --     require "_plugins.zen"
+  --   end,
+  -- }
   use {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },
@@ -154,6 +147,23 @@ return require("packer").startup(function(use)
       require "_plugins.formatter"
     end,
   }
+  use {
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+    config = function()
+      require "_plugins.autopairs"
+    end,
+  }
+  -- use {
+  --   "brymer-meneses/grammar-guard.nvim",
+  --   requires = {
+  --     "neovim/nvim-lspconfig",
+  --     "williamboman/nvim-lsp-installer",
+  --   },
+  --   config = function()
+  --     require "_plugins.grammar"
+  --   end,
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

@@ -30,5 +30,8 @@ dnf_packages:
 cargo_packages:
   - stylua
 
-python_packages:
+pip_packages:
+  - pandas
+  - numpy
+  - matplotlib
   - black

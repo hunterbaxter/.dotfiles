@@ -1,7 +1,7 @@
 local present, ts_config = pcall(require, "nvim-treesitter.configs")
 if not present then
-    vim.notify("treesitter not ok")
-    return
+  vim.notify "treesitter not ok"
+  return
 end
 
 ts_config.setup {
@@ -17,9 +17,12 @@ ts_config.setup {
     "yaml",
   },
   sync_install = false,
-  highlight = {
-      enable = true,
-      use_languagetree = true
+  autopairs = {
+    enable = true,
   },
-  indent = { enable = true, disable = {""} },
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
+  indent = { enable = true, disable = { "" } },
 }
