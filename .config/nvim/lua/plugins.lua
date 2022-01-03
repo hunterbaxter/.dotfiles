@@ -39,8 +39,7 @@ packer.init {
   },
 }
 
--- vim.cmd [[packadd packer.nvim]]
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use "wbthomason/packer.nvim"
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -97,7 +96,7 @@ return require('packer').startup(function()
   use {
     "folke/which-key.nvim",
     config = function()
-      require "_plugins.whichKey"
+      -- require "_plugins.whichKey
     end
   }
   use {
@@ -107,7 +106,6 @@ return require('packer').startup(function()
         require("todo-comments").setup{}
     end
   }
-  use 'jdhao/whitespace.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -123,7 +121,7 @@ return require('packer').startup(function()
   }
   use {
     "lervag/vimtex",
-    ft = {"tex", "bib"},
+    -- ft = {"tex", "bib"},
     config = function()
       vim.cmd("source ~/.dotfiles/.config/nvim/lua/_plugins/vimtex.vim")
     end
@@ -140,9 +138,14 @@ return require('packer').startup(function()
     ft = {"markdown"},
     run = 'cd app && yarn install',
   }
+  use {
+    "McAuleyPenney/tidy.nvim",
+    event = "BufWritePre"
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+-- vim.cmd [[packadd packer.nvim]]
 end)
