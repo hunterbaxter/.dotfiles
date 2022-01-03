@@ -26,3 +26,9 @@ dnf_packages:
   - vagrant
   - zathura
   - zsh
+
+cargo_packages:
+  - stylua
+
+python_packages:
+  - black

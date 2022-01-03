@@ -1,8 +1,14 @@
+local status_ok, lualine = pcall(require, "lualine")
+if not status_ok then
+    vim.notify("lua is not ok")
+	return
+end
+
 -- lualine looks like this
 -- +-------------------------------------------------+
 -- | A | B | C                             X | Y | Z |
 -- +-------------------------------------------------+
-require'lualine'.setup {
+lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
