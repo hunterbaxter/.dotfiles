@@ -1,6 +1,6 @@
 -- vim.cmd[[:command! VisualBlock  normal! V]]
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+-- local term_opts = { silent = true } -- NOTE: used with integrated terminal
 -- Shortens nvim api function name
 local keymap = vim.api.nvim_set_keymap
 --Remap space as leader key
@@ -16,4 +16,4 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)

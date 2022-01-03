@@ -142,10 +142,15 @@ return require('packer').startup(function(use)
     "McAuleyPenney/tidy.nvim",
     event = "BufWritePre"
   }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+        require "_plugins.tree"
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
--- vim.cmd [[packadd packer.nvim]]
 end)
