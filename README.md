@@ -1,2 +1,3 @@
-# .dotfiles
-hunter's dotfiles
+# hunter's .dotfiles
+
+- [Z Shell (Zsh)](./.config/zsh/)

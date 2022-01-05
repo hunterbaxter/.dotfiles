@@ -1,12 +1,10 @@
+# FIX: this should probably be managed better...
 setxkbmap -option caps:swapescape
 # initializes the promp system promptinit
 autoload -U promptinit
 promptinit
-# allows escape sequences 
+# allows escape sequences
 setopt PROMPT_SUBST
-
-# always start with tmux
-# if [ "$TMUX" = "" ]; then tmux; fi
 
 # NO. BEEPS.
 unsetopt BEEP
@@ -35,7 +33,7 @@ HISTFILE=~/.cache/zsh/history
 HISTSIZE=100000
 # max number of items for history file
 SAVEHIST=100000
-# append command t ohistory file as typed 
+# append command to history file as typed
 setopt INC_APPEND_HISTORY
 # sets timestamp and duration for each command
 setopt EXTENDED_HISTORY
@@ -59,9 +57,7 @@ autoload -Uz compinit; compinit;
 # zstyle ':completion:warnings' format 'No matches for: %d'
 # zstyle ':completion:*' completer_expand_complete_correct
 
-# don't know what this does (from book)
 zstyle ':completion:*' menu select
-# don't know what this does
 zmodload zsh/complist
 _comp_options+=(globdots)
 

@@ -1,12 +1,10 @@
 # git shortcuts
 alias \
     g="git"\
-    gs="git status"\
     ga="git add"\
     gc="git commit"\
     gr="git rm"\
-    gp="git pull"\
-    gpo="git pull origin"
+    gs="git status"
 
 # shorten commands
 alias \
