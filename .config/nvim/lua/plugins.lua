@@ -154,6 +154,19 @@ return require("packer").startup(function(use)
       require "_plugins.autopairs"
     end,
   }
+  use {
+    "akinsho/bufferline.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" },
+    config = function()
+      require "_plugins.bufferline"
+    end,
+  }
+  -- use {
+  --   use "akinsho/toggleterm.nvim",
+  --   config = function()
+  --     require "_plugins.toggleterm"
+  --   end,
+  -- }
   -- use {
   --   "brymer-meneses/grammar-guard.nvim",
   --   requires = {
