@@ -8,6 +8,7 @@ dnf_packages:
   - dunst
   - dmenu
   - firefox
+  - flameshot
   - gcc
   - ibm-plex-fonts-all
   - i3
@@ -26,6 +27,7 @@ dnf_packages:
   - vagrant
   - zathura
   - zsh
+  - redshift-gtk
 
 cargo_packages:
   - stylua
