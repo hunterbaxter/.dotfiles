@@ -78,3 +78,18 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 
 vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
+
+-- the most painful bug I have ever had to debug lol
+-- https://stackoverflow.com/questions/34675677/disable-highlight-matched-parentheses-in-vim-let-loaded-matchparen-1-not-w
+vim.cmd([[
+function! g:RemoveMatchParen ()
+    if exists(":NoMatchParen")
+        :NoMatchParen
+    endif
+endfunction
+
+augroup plugin_initialize
+    autocmd!
+    autocmd VimEnter * call RemoveMatchParen()
+augroup END
+]])

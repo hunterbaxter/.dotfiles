@@ -41,37 +41,38 @@ packer.init {
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "saadparwaiz1/cmp_luasnip"
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require "completion"
+    end,
+  }
+  use {
+    "neovim/nvim-lspconfig",
+    requires = {
+      "williamboman/nvim-lsp-installer",
+    },
+    config = function()
+      require "lsp.init"
+    end,
+  }
   use {
     "nvim-treesitter/nvim-treesitter",
-    branch = "0.5-compat",
     run = ":TSUpdate",
     config = function()
       require "_plugins.treesitter"
     end,
   }
-  -- until fedora gets 0.6 this is useless
-  -- use {
-  --     'nvim-telescope/telescope-fzf-native.nvim',
-  --     run = 'make'
-  -- }
-  -- use {
-  --     'nvim-telescope/telescope.nvim',
-  --     requires = { {'nvim-lua/plenary.nvim'} },
-  --     config = function()
-  --         require "plugins.telescope"
-  --     end
-  -- }
   use {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim",
@@ -114,18 +115,18 @@ return require("packer").startup(function(use)
   }
   use {
     "lervag/vimtex",
-    -- ft = {"tex", "bib"},
+    ft = { "tex", "bib" },
     config = function()
       vim.cmd "source ~/.dotfiles/.config/nvim/lua/_plugins/vimtex.vim"
     end,
   }
-  -- use {
-  --   "Pocco81/TrueZen.nvim",
-  --   -- ft = {"tex", "bib"},
-  --   config = function()
-  --     require "_plugins.zen"
-  --   end,
-  -- }
+  use {
+    "Pocco81/TrueZen.nvim",
+    ft = {"tex", "bib", "markdown"},
+    config = function()
+      require "_plugins.zen"
+    end,
+  }
   use {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },
@@ -161,22 +162,6 @@ return require("packer").startup(function(use)
       require "_plugins.bufferline"
     end,
   }
-  -- use {
-  --   use "akinsho/toggleterm.nvim",
-  --   config = function()
-  --     require "_plugins.toggleterm"
-  --   end,
-  -- }
-  -- use {
-  --   "brymer-meneses/grammar-guard.nvim",
-  --   requires = {
-  --     "neovim/nvim-lspconfig",
-  --     "williamboman/nvim-lsp-installer",
-  --   },
-  --   config = function()
-  --     require "_plugins.grammar"
-  --   end,
-  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

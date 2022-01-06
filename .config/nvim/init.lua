@@ -3,8 +3,6 @@ local modules = {
   "options",
   "plugins",
   "colorscheme",
-  "completion",
-  "lsp"
 }
 
 for i = 1, #modules, 1 do
