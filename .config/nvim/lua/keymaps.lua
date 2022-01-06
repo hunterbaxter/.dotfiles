@@ -29,3 +29,6 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Custom
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>f", ":FormatWrite<cr>", opts)
+
+-- TODO: toggle night/day
+-- TODO: toggle zen mode
