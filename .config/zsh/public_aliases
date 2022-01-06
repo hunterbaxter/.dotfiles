@@ -23,6 +23,8 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto"
 
+alias colors256="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1263/raw/ | bash"
+
 # TODO: Remove code reuse
 alias pomo="sleep 1500 && zenity --warning --text='25 minutes passed. Break.'"
 alias pomov="sleep 1500 && google_speech -l en-gb '25 minutes of work has finished. Enjoy your break' && zenity --warning --text='25 minutes passed. Break.'"
