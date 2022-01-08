@@ -122,7 +122,7 @@ return require("packer").startup(function(use)
   }
   use {
     "Pocco81/TrueZen.nvim",
-    ft = {"tex", "bib", "markdown"},
+    ft = { "tex", "bib", "markdown" },
     config = function()
       require "_plugins.zen"
     end,
@@ -160,6 +160,12 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" },
     config = function()
       require "_plugins.bufferline"
+    end,
+  }
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require "_plugins.toggleterm"
     end,
   }
   -- Automatically set up your configuration after cloning packer.nvim
