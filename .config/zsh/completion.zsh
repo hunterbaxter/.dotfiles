@@ -1,8 +1,9 @@
 # setopt NOMATCH
 setopt PROMPT_SUBST
-setopt AUTO_LIST # Automatically list choices on ambiguous completion.
+setopt AUTO_LIST # Automatically list choices on ambiguous completion
+setopt EXTENDED_GLOB # expands ~, #, ^
+
 # setopt MENU_COMPLETE
-setopt EXTENDED_GLOB # expands ~,#,^
 
 autoload -Uz compinit; compinit;
 # zstyle => :completion:function:completer:command:argument:tag

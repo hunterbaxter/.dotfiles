@@ -14,6 +14,20 @@ alias \
     lock="xdg-screensaver lock"\
     open="xdg-open"
 
+# timewarrior commands
+alias \
+    wts="watch timew summary :ids"\
+    ts="timew stop"\
+    tres="timew start research work"\
+    tler="timew start learn work"\
+    tgra="timew start grader work"\
+    tlin="timew start linux personal"\
+    tper="timew start writing personal"\
+    tcar="timew start career personal"\
+    talg="timew start algo school"\
+    tnet="timew start compnet school"\
+    teca="timew start comparch school"
+
 # reboot sequence
 alias rbsq="sudo dnf upgrade -y && sudo systemctl reboot -i --force"
 
@@ -35,4 +49,7 @@ alias sbpomov="sleep 300 && google_speech -l en-gb '5 minutes passed. Get back t
 alias lbpomo="sleep 900 && zenity --warning --text='15 minute passed. Back to work.'"
 alias lbpomov="sleep 900 && google_speech -l en-gb '15 minutes passed. Get back to work.' && zenity --warning --text='15 minutes passed. Break.'"
 alias tbpomov="sleep 1 && google_speech -l en-gb '1 second passed. Get back to work.' && zenity --warning --text='1 second passed. Break.'"
-alias wts="watch timew summary"
+
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
