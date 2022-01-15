@@ -3,10 +3,10 @@ setxkbmap -option caps:swapescape
 
 # man zshoptions
 setopt AUTO_CD
-setopt NOMATCH
-setopt PROMPT_SUBST
-setopt MENU_COMPLETE
-setopt EXTENDED_GLOB
+# setopt NOMATCH
+# setopt PROMPT_SUBST
+# setopt MENU_COMPLETE
+# setopt EXTENDED_GLOB # although I probably want
 unsetopt BEEP
 unsetopt LIST_BEEP
 
@@ -18,6 +18,7 @@ export TERMINAL="alacritty"
 # source files for organization
 source "$HOME/.dotfiles/.config/zsh/private_aliases"
 source "$HOME/.dotfiles/.config/zsh/public_aliases"
+source "$HOME/.dotfiles/.config/zsh/completion.zsh"
 source "$HOME/.dotfiles/.config/zsh/vi_mode"
 
 # HISTORY: `man zshoptions` for descriptions
@@ -39,20 +40,6 @@ setopt HIST_REDUCE_BLANKS
 
 # magic space (fills in !!)
 bindkey ' ' magic-space
-
-# NOTE: As of now, completion is not working very well
-autoload -Uz compinit; compinit;
-# zstyle => :completion:function:completer:command:argument:tag
-#
-# from learning shell scripting with zsh on oreilly
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:descriptions' format '%B%d%b'
-# zstyle ':completion:messages' format %d
-# zstyle ':completion:warnings' format 'No matches for: %d'
-# zstyle ':completion:*' completer_expand_complete_correct
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-_comp_options+=(globdots)
 
 path+=('/usr/local/spark/bin')
 path+=('/usr/local/ampl')
