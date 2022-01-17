@@ -1,3 +1,6 @@
+-- https://copr.fedorainfracloud.org/coprs/agriffis/neovim-nightly/
+-- https://arongriffis.com/2019-03-02-neovim-nightly-builds
+-- https://arongriffis.com/2019-04-15-neovim-nightlies-revisited
 local fn = vim.fn
 
 -- Automatically install packer
@@ -73,31 +76,33 @@ return require("packer").startup(function(use)
       require "_plugins.treesitter"
     end,
   }
+  use "projekt0n/github-nvim-theme"
   use {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim",
   }
-  use "folke/tokyonight.nvim"
   use {
     "lewis6991/gitsigns.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
       require "_plugins.gitsigns"
+    end,
+  }
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      -- "nvim-lua/popup.nvim",
+      -- "nvim-telescope/telescope-media-files.nvim",
+    },
+    config = function()
+      require "_plugins.telescope"
     end,
   }
   use {
     "folke/which-key.nvim",
     config = function()
       require "_plugins.whichKey"
-    end,
-  }
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {}
     end,
   }
   use {
@@ -168,6 +173,15 @@ return require("packer").startup(function(use)
       require "_plugins.toggleterm"
     end,
   }
+  -- BUG: https://github.com/folke/todo-comments.nvim/issues/85
+  -- hopefully it gets fixed soonish
+  -- use {
+  --   "folke/todo-comments.nvim",
+  --   requires = "nvim-lua/plenary.nvim",
+  --   config = function()
+  --     require("todo-comments").setup {}
+  --   end,
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

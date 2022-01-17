@@ -71,11 +71,12 @@ local disabled_built_ins = {
   "logipat",
   "rrhelper",
   "spellfile_plugin",
-  "matchit"
+  "matchparen",
 }
 for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
+  -- "loaded_matchparen" -- causes terrible paren issue
 
 vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
 

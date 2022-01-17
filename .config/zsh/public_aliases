@@ -24,7 +24,8 @@ alias \
     tlin="timew start linux personal"\
     tper="timew start writing personal"\
     tcar="timew start career personal"\
-    talg="timew start algo school"\
+    tcch="timew start compchore personal"\
+    tdsy="timew start distsys school"\
     tnet="timew start compnet school"\
     teca="timew start comparch school"
 
