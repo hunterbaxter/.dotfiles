@@ -64,6 +64,7 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig",
     requires = {
       "williamboman/nvim-lsp-installer",
+      -- "simrat39/rust-tools.nvim",
     },
     config = function()
       require "lsp.init"
@@ -72,6 +73,9 @@ return require("packer").startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+    -- FIXME: https://github.com/nvim-treesitter/nvim-treesitter/issues/2295
+    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
     config = function()
       require "_plugins.treesitter"
     end,
@@ -173,15 +177,13 @@ return require("packer").startup(function(use)
       require "_plugins.toggleterm"
     end,
   }
-  -- BUG: https://github.com/folke/todo-comments.nvim/issues/85
-  -- hopefully it gets fixed soonish
-  -- use {
-  --   "folke/todo-comments.nvim",
-  --   requires = "nvim-lua/plenary.nvim",
-  --   config = function()
-  --     require("todo-comments").setup {}
-  --   end,
-  -- }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {}
+    end,
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

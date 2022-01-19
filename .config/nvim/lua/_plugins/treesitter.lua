@@ -15,6 +15,7 @@ ts_config.setup {
     "python",
     "rust",
     "yaml",
+    "go",
   },
   sync_install = false,
   autopairs = {

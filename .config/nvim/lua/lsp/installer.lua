@@ -1,7 +1,6 @@
--- local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-  vim.notify("nvim-lsp-installer is not ok")
+  vim.notify "nvim-lsp-installer is not ok"
   return
 end
 
@@ -11,7 +10,8 @@ local servers = {
   "sumneko_lua",
   "pyright",
   "texlab",
-  "yamlls"
+  "yamlls",
+  "rust_analyzer",
 }
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
@@ -34,8 +34,8 @@ lsp_installer.on_server_ready(function(server)
   }
 
   if server.name == "sumneko_lua" then
-  	local sumneko_opts = require("lsp.servers.sumneko_lua")
-  	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    local sumneko_opts = require "lsp.servers.sumneko_lua"
+    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
   -- if server.name == "jsonls" then
@@ -44,9 +44,23 @@ lsp_installer.on_server_ready(function(server)
   -- end
   --
   if server.name == "pyright" then
-  	local pyright_opts = require("lsp.servers.pyright")
-  	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+    local pyright_opts = require "lsp.servers.pyright"
+    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
+
+  -- if server.name == "rust_analyzer" then
+  --   -- Initialize the LSP via rust-tools instead
+  --   require("rust-tools").setup {
+  --     -- The "server" property provided in rust-tools setup function are the
+  --     -- settings rust-tools will provide to lspconfig during init.            --
+  --     -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
+  --     -- with the user's own settings (opts).
+  --     server = vim.tbl_deep_extend("force", server:get_default_options(), {}),
+  --   }
+  --   server:attach_buffers()
+  -- else
+  --   server:setup(opts)
+  -- end
 
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
