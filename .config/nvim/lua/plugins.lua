@@ -74,7 +74,7 @@ return require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     -- FIXME: https://github.com/nvim-treesitter/nvim-treesitter/issues/2295
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    commit = "668de0951a36ef17016074f1120b6aacbe6c4515",
     requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
     config = function()
       require "_plugins.treesitter"
