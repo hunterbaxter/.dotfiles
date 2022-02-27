@@ -24,10 +24,13 @@ alias \
     tlin="timew start linux personal"\
     tper="timew start writing personal"\
     tcar="timew start career personal"\
+    tvoc="timew start vocab personal"\
     tcch="timew start compchore personal"\
+    tpro="timew start prog personal"\
     tdsy="timew start distsys school"\
     tnet="timew start compnet school"\
     teca="timew start comparch school"
+    tcos="timew start os school"
 
 # reboot sequence
 alias rbsq="sudo dnf upgrade -y && sudo systemctl reboot -i --force"
