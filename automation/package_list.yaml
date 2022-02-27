@@ -2,7 +2,6 @@
 dnf_packages:
   - '@Development tools'
   - alacritty
-  - awscli
   - ansible
   - blueman
   - dunst
@@ -15,19 +14,21 @@ dnf_packages:
   - libreoffice
   - htop
   - neovim
-  - task
-  - timew
-  - texlive-scheme-full
   - ranger
+  - pandoc
+  - pdftk
+  - python3
+  - redshift-gtk
+  - ripgrep
+  - task
+  - texlive-scheme-full
+  - timew
   - thunar
   - tldr
   - tmux
-  - pandoc
-  - python3
   - vagrant
   - zathura
   - zsh
-  - redshift-gtk
 
 cargo_packages:
   - stylua
