@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     requires = {
+      "neovim/nvim-lspconfig",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
@@ -64,6 +65,7 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig",
     requires = {
       "williamboman/nvim-lsp-installer",
+      "jose-elias-alvarez/null-ls.nvim",
       -- "simrat39/rust-tools.nvim",
     },
     config = function()
@@ -151,12 +153,12 @@ return require("packer").startup(function(use)
       require "_plugins.tree"
     end,
   }
-  use {
-    "mhartington/formatter.nvim",
-    config = function()
-      require "_plugins.formatter"
-    end,
-  }
+  -- use {
+  --   "mhartington/formatter.nvim",
+  --   config = function()
+  --     require "_plugins.formatter"
+  --   end,
+  -- }
   use {
     "windwp/nvim-autopairs",
     after = "nvim-cmp",

@@ -30,7 +30,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Formatter (format lint)
-keymap("n", "<leader>fl", ":FormatWrite<cr>", opts)
+keymap("n", "<leader>fl", ":Format<cr>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)

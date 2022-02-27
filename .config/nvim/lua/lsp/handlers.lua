@@ -12,10 +12,8 @@ M.setup = function()
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
-  -- BUG: virutal text still appears?!?!
   local config = {
     virtual_text = false,
-    -- show signs
     signs = {
       active = signs,
     },
@@ -59,6 +57,7 @@ local function lsp_highlight_document(client)
   end
 end
 
+-- https://github.com/LunarVim/Neovim-from-scratch/blob/14-null-ls/lua/user/lsp/handlers.lua
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -72,15 +71,19 @@ local function lsp_keymaps(bufnr)
     "<cmd>lua vim.lsp.buf.signature_help()<CR>",
     opts
   )
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(
     bufnr,
     "n",
     "[d",
     '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+    opts
+  )
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    "n",
+    "]d",
+    '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
     opts
   )
   vim.api.nvim_buf_set_keymap(
