@@ -21,8 +21,9 @@ formatter.setup {
       function()
         return {
           exe = "black", -- this should be available on your $PATH
-          args = { "-" },
-          stdin = true,
+          -- args = { "-" },
+          args = { "-l 80" },
+          stdin = false,
         }
       end,
     },

@@ -4,15 +4,17 @@ vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
   git = {
-    unstaged = "",
+    unstaged = "✗",
     staged = "S",
     unmerged = "",
     renamed = "➜",
-    deleted = "",
     untracked = "U",
+    deleted = "",
     ignored = "◌",
   },
   folder = {
+    arrow_open = "",
+    arrow_closed = "",
     default = "",
     open = "",
     empty = "",
@@ -23,11 +25,13 @@ vim.g.nvim_tree_icons = {
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+  vim.notify "nvim tree not ok"
   return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
+  vim.notify "nvim tree config not ok"
   return
 end
 
@@ -37,15 +41,12 @@ nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
+  ignore_ft_on_setup = {},
   auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = true,
+  -- update_cwd = true,
+  update_cwd = false,
   update_to_buf_dir = {
     enable = true,
     auto_open = true,
