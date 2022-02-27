@@ -19,6 +19,7 @@ path+=('/usr/local/ampl')
 path+=('/home/baxterhc/.local/share/coursier/bin')
 path+=('/usr/local/share/openvswitch/scripts/')
 path+=('/home/baxterhc/.local/bin')
+path+=('$HOME/.poetry/env`')
 export PATH
 
 . "$HOME/.cargo/env"
