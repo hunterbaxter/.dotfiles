@@ -26,6 +26,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Buffer manipulation
+keymap("n", "<leader>bv",":vsplit<CR>", opts)
+keymap("n", "<leader>bd",":Bdelete<CR>", opts)
+
 -- Custom
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
