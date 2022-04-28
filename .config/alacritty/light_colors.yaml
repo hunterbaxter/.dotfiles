@@ -28,7 +28,8 @@
 colors:
   primary:
     foreground: '#202E18'
-    background: '#E5EDE6'
+    # background: '#E5EDE6'
+    background: '#F5F5F5'
   cursor:
     cursor: '#202E18'
     text: '#E5EDE6'

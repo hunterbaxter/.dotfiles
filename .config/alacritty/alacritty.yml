@@ -69,8 +69,8 @@ key_bindings:
   - { key: Minus, mods: Control, action: DecreaseFontSize }
 
 import:
-  # - ~/.dotfiles/.config/alacritty/light_colors.yaml
-  - ~/.dotfiles/.config/alacritty/paper_colors.yaml
+  - ~/.dotfiles/.config/alacritty/light_colors.yaml
+  # - ~/.dotfiles/.config/alacritty/paper_colors.yaml
   # - ~/.dotfiles/.config/alacritty/dark_colors.yaml
 
 #debug:

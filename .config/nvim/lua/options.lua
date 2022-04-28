@@ -31,6 +31,8 @@ local options = {
   tabstop = 4,
   smartindent = true,
   modeline = false,
+  showmatch = true,
+  -- matchparen = true,
 }
 
 for k, v in pairs(options) do
@@ -42,15 +44,15 @@ vim.opt.iskeyword:append "-" -- makes "-" part of a word
 vim.o.backspace = [[indent,eol,start]]
 
 -- Disable NeoVim Intro
-vim.opt.shortmess:append("sI")
-vim.opt_global.shortmess:remove("F"):append("c")
+vim.opt.shortmess:append "sI"
+vim.opt_global.shortmess:remove("F"):append "c"
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-vim.opt.whichwrap:append("<>hl")
+vim.opt.whichwrap:append "<>hl"
 
 -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
-vim.cmd("let &fcs='eob: '")
+vim.cmd "let &fcs='eob: '"
 
 -- disabling plugins
 local disabled_built_ins = {
@@ -71,26 +73,27 @@ local disabled_built_ins = {
   "logipat",
   "rrhelper",
   "spellfile_plugin",
-  "matchparen",
+  -- "matchparen",
 }
 for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
-  -- "loaded_matchparen" -- causes terrible paren issue
+-- "loaded_matchparen" -- causes terrible paren issue
 
-vim.cmd([[autocmd FileType json syntax match Comment +\/\/.\+$+]])
+vim.cmd [[autocmd FileType json syntax match Comment +\/\/.\+$+]]
 
+-- this seems to be fixed... for now...
 -- the most painful bug I have ever had to debug lol
 -- https://stackoverflow.com/questions/34675677/disable-highlight-matched-parentheses-in-vim-let-loaded-matchparen-1-not-w
-vim.cmd([[
-function! g:RemoveMatchParen ()
-    if exists(":NoMatchParen")
-        :NoMatchParen
-    endif
-endfunction
-
-augroup plugin_initialize
-    autocmd!
-    autocmd VimEnter * call RemoveMatchParen()
-augroup END
-]])
+-- vim.cmd([[
+-- function! g:RemoveMatchParen ()
+--     if exists(":NoMatchParen")
+--         :NoMatchParen
+--     endif
+-- endfunction
+--
+-- augroup plugin_initialize
+--     autocmd!
+--     autocmd VimEnter * call RemoveMatchParen()
+-- augroup END
+-- ]])
