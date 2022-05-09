@@ -4,6 +4,8 @@ if not status_ok then
   return
 end
 
+local lspconfig = require "lspconfig"
+
 local servers = {
   "bashls",
   "clangd",
@@ -13,56 +15,19 @@ local servers = {
   "yamlls",
   "rust_analyzer",
 }
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
-    end
-  end
-end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
+lsp_installer.setup {
+  ensure_installed = servers,
+}
+
+for _, server in pairs(servers) do
   local opts = {
-    -- on_attach = require("user.lsp.handlers").on_attach,
-    -- capabilities = require("user.lsp.handlers").capabilities,
     on_attach = require("lsp.handlers").on_attach,
     capabilities = require("lsp.handlers").capabilities,
   }
-
-  if server.name == "sumneko_lua" then
-    local sumneko_opts = require "lsp.servers.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  local has_custom_opts, server_custom_opts = pcall(require, "lsp.servers." .. server)
+  if has_custom_opts then
+    opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
-
-  -- if server.name == "jsonls" then
-  --   local jsonls_opts = require("lsp.servers.jsonls")
-  --   opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-  -- end
-  --
-  if server.name == "pyright" then
-    local pyright_opts = require "lsp.servers.pyright"
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
-
-  -- if server.name == "rust_analyzer" then
-  --   -- Initialize the LSP via rust-tools instead
-  --   require("rust-tools").setup {
-  --     -- The "server" property provided in rust-tools setup function are the
-  --     -- settings rust-tools will provide to lspconfig during init.            --
-  --     -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
-  --     -- with the user's own settings (opts).
-  --     server = vim.tbl_deep_extend("force", server:get_default_options(), {}),
-  --   }
-  --   server:attach_buffers()
-  -- else
-  --   server:setup(opts)
-  -- end
-
-  -- This setup() function is exactly the same as lspconfig's setup function.
-  -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
-end)
+  lspconfig[server].setup(opts)
+end
