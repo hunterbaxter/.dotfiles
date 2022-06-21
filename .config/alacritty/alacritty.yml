@@ -61,36 +61,17 @@ shell:
 
 key_bindings:
   - { key: P,         mods: Control,                     action: Paste         }
-  - { key: Q,         mods: Control,                     action: Quit          }
   - { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
   - { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   - { key: 0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
 
+# NOTE:
+# - Shift + Ctrl + Space (Alacritty 0.9.0)
+# Toggle Vi mode
+
 import:
   - ~/.dotfiles/.config/alacritty/light_colors.yaml
   # - ~/.dotfiles/.config/alacritty/paper_colors.yaml
   # - ~/.dotfiles/.config/alacritty/dark_colors.yaml
-
-#debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
-
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
-
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - Off
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
-
-  # Print all received window events.
-  #print_events: false
-  #
