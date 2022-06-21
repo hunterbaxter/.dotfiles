@@ -1,12 +1,14 @@
+-- TODO: figure out how to get better keybindings for completion since these are terrible.
+
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  vim.notify("cmp is not ok")
+  vim.notify "cmp is not ok"
   return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
-  vim.notify("luasnip is not ok")
+  vim.notify "luasnip is not ok"
   return
 end
 
@@ -55,7 +57,7 @@ cmp.setup {
   -- NOTE: <C-*> is control
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -116,7 +118,7 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 5 },
     { name = "path" },
   },
   confirm_opts = {
@@ -127,7 +129,7 @@ cmp.setup {
   --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   -- },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
 }

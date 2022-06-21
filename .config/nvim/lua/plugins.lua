@@ -1,3 +1,6 @@
+-- TODO: add neoscroll or some smoothing option
+-- https://github.com/karb94/neoscroll.nvim
+
 -- https://copr.fedorainfracloud.org/coprs/agriffis/neovim-nightly/
 -- https://arongriffis.com/2019-03-02-neovim-nightly-builds
 -- https://arongriffis.com/2019-04-15-neovim-nightlies-revisited
@@ -53,6 +56,7 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
+      -- snippet stuff bundled in the area
       "saadparwaiz1/cmp_luasnip",
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
@@ -180,6 +184,11 @@ return require("packer").startup(function(use)
       require("todo-comments").setup {}
     end,
   }
+  -- use {'karb94/neoscroll.nvim',
+  --   config = function()
+  --      require "_plugins.neoscroll"
+  --   end
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
