@@ -30,8 +30,8 @@ elseif theme_name == "tokyonight" then
   vim.g.tokyonight_style = "night"
   style = "night"
   vim.g.tokyonight_transparent = true
-  vim.g.tokyonight_day_brightness = 0.2
-  vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+  vim.g.tokyonight_day_brightness = 0.15
+  vim.g.tokyonight_colors = {error = "#ff0000"}
 end
 
 

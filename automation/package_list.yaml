@@ -12,14 +12,12 @@ dnf_packages:
   - ibm-plex-fonts-all
   - i3
   - libreoffice
-  - htop
   - neovim
   - ranger
   - pandoc
   - pdftk
   - python3
   - redshift-gtk
-  - ripgrep
   - task
   - texlive-scheme-full
   - timew
@@ -32,9 +30,27 @@ dnf_packages:
 
 cargo_packages:
   - stylua
+  - git-delta
+  - bat
+  - btm
+  - grex
+  - exa
+  - rg
+  - tealdeer
+  - mdbook
+  - gping
+  - dust
+  - diskonaut
 
 pip_packages:
+  - jupyterlab
   - pandas
   - numpy
   - matplotlib
   - black
+
+flatpak_packages:
+  - anki
+  - signal
+  - steam
+  - zoom
