@@ -1,3 +1,1 @@
-# hunter's .dotfiles
-
-- [Z Shell (Zsh)](./.config/zsh/)
+# Linux Configuration
