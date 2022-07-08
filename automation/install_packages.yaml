@@ -15,6 +15,7 @@
     - name: Autoremove unneeded packages installed as dependencies
       ansible.builtin.dnf:
         autoremove: yes
+    # TODO: flatpak packages
+    # TODO: rust packages
     # TODO: pip packages
-    # TODO: system upgrades are manual for now
 ...

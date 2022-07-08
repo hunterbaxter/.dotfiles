@@ -11,7 +11,7 @@ alias \
     v="nvim"\
     vi="nvim"\
     z="zathura"\
-    lock="xdg-screensaver lock"\
+    lock="i3lock"\
     open="xdg-open"
 
 # timewarrior commands
@@ -51,5 +51,4 @@ alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index # directory stack
 
 
-alias vbeg="~/nerd-dictation/nerd-dictation begin"
-alias vend="~/nerd-dictation/nerd-dictation end"
+alias kubectl="minikube kubectl --"

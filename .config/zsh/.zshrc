@@ -25,10 +25,7 @@ setopt HIST_REDUCE_BLANKS # remove unnecessary blanks
 # magic space (fills in !!)
 bindkey ' ' magic-space
 
-source "$HOME/.dotfiles/scripts/def.sh"
-
 # I stored it in a scripts directory I have
-source "$XDG_CONFIG_HOME/zsh/plugins/bd/bd.zsh"
 source ~/.scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="$HOME/.poetry/bin:$PATH"

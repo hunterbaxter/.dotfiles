@@ -1,18 +1,15 @@
 # TODO: docker
-dnf_packages:
+system_packages:
   - '@Development tools'
+  - '@virtualization'
   - alacritty
   - ansible
   - blueman
-  - dunst
   - dmenu
-  - firefox
-  - flameshot
-  - gcc
   - ibm-plex-fonts-all
   - i3
-  - libreoffice
   - neovim
+  - newsboat
   - ranger
   - pandoc
   - pdftk
@@ -21,26 +18,30 @@ dnf_packages:
   - task
   - texlive-scheme-full
   - timew
-  - thunar
-  - tldr
   - tmux
   - vagrant
   - zathura
   - zsh
 
+flatpak_packages:
+  - anki
+  - libreoffice
+  - firefox
+  - flameshot
+  - signal
+  - steam
+  - zoom
+
 cargo_packages:
-  - stylua
-  - git-delta
   - bat
   - btm
-  - grex
+  - dust
   - exa
+  - git-delta
   - rg
   - tealdeer
-  - mdbook
   - gping
-  - dust
-  - diskonaut
+  - stylua
 
 pip_packages:
   - jupyterlab
@@ -48,9 +49,3 @@ pip_packages:
   - numpy
   - matplotlib
   - black
-
-flatpak_packages:
-  - anki
-  - signal
-  - steam
-  - zoom

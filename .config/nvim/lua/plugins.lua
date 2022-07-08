@@ -86,7 +86,7 @@ return require("packer").startup(function(use)
   }
   -- colorschemes
   use "projekt0n/github-nvim-theme"
-  use 'folke/tokyonight.nvim'
+  use "folke/tokyonight.nvim"
   use {
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim",
@@ -148,8 +148,11 @@ return require("packer").startup(function(use)
     run = "cd app && yarn install",
   }
   use {
-    "McAuleyPenney/tidy.nvim",
+    "mcauley-penney/tidy.nvim",
     event = "BufWritePre",
+    config = function()
+      require("tidy").setup()
+    end,
   }
   use {
     "kyazdani42/nvim-tree.lua",
