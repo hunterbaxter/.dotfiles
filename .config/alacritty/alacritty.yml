@@ -28,21 +28,21 @@ scrolling:
   # Specifying '0' will disable scrolling.
   history: 100000
   multiplier: 3
-
 font:
+  # if using ligature fork: https://github.com/zenixls2/alacritty, this is viable, else not
+  ligatures: true
   size: 11.0
-  # Normal (roman) font face
   normal:
-    family: IBM Plex Mono
+    family: Jetbrains Mono
     style: Regular
   bold:
-    family: IBM Plex Mono
+    family: Jetbrains Mono
     style: Bold
   italic:
-    family: IBM Plex Mono
+    family: Jetbrains Mono
     style: Italic
   bold_italic:
-    family: IBM Plex Mono
+    family: Jetbrains Mono
     style: Bold Italic
   offset:
     x: 0

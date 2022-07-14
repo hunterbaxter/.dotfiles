@@ -2,10 +2,10 @@
 system_packages:
   - '@Development tools'
   - '@virtualization'
-  - alacritty
   - ansible
   - blueman
   - dmenu
+  - jetbrains-mono-fonts-all
   - ibm-plex-fonts-all
   - i3
   - neovim
@@ -15,6 +15,7 @@ system_packages:
   - pdftk
   - python3
   - redshift-gtk
+  - speedtest-cli
   - task
   - texlive-scheme-full
   - timew
@@ -24,11 +25,13 @@ system_packages:
   - zsh
 
 flatpak_packages:
+  # - alacritty # NOTE: manually install fork
   - anki
   - libreoffice
   - firefox
   - flameshot
   - signal
+  - slack
   - steam
   - zoom
 
@@ -41,6 +44,7 @@ cargo_packages:
   - rg
   - tealdeer
   - gping
+  - procs
   - stylua
 
 pip_packages:

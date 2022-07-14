@@ -3,19 +3,36 @@
   hosts: localhost
   vars_files:
     - package_list.yaml
+  collections:
+    - name: community.general
   tasks:
-    - name: Install dnf packages
-      become: true
-      become_user: root
+    - name: Install system packages
+      # become_user: root
       ansible.builtin.dnf:
         name: "{{item}}"
         state: latest
         update_cache: true
-      loop: "{{dnf_packages}}"
+      loop: "{{system_packages}}"
+      become: true
+
     - name: Autoremove unneeded packages installed as dependencies
       ansible.builtin.dnf:
         autoremove: yes
-    # TODO: flatpak packages
-    # TODO: rust packages
-    # TODO: pip packages
+      become: true
+
+    # - name: Install flatpak packages
+    #   community.general.flatpak_remote:
+    #     name: "{{item}}"
+    #     state: present
+    #   loop: "{{flatpak_packages}}"
+
+    # - name: Install cargo packages
+    #   community.general.cargo:
+    #     name: "{{item}}"
+    #   loop: "{{cargo_packages}}"
+
+    - name: Install pip packages
+      ansible.builtin.pip:
+        name: "{{item}}"
+      loop: "{{pip_packages}}"
 ...
