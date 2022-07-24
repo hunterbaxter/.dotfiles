@@ -27,8 +27,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Buffer manipulation
-keymap("n", "<leader>bv",":vsplit<CR>", opts)
-keymap("n", "<leader>bd",":Bdelete<CR>", opts)
+keymap("n", "<leader>bv", ":vsplit<CR>", opts)
+keymap("n", "<leader>bd", ":Bdelete<CR>", opts)
 
 -- Custom
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
@@ -45,3 +45,4 @@ keymap("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- TODO: toggle night/day
 -- TODO: toggle zen mode
+vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "toggle lsp_lines" })

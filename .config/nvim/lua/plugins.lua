@@ -187,6 +187,12 @@ return require("packer").startup(function(use)
       require("todo-comments").setup {}
     end,
   }
+  use {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  }
   -- use {'karb94/neoscroll.nvim',
   --   config = function()
   --      require "_plugins.neoscroll"
